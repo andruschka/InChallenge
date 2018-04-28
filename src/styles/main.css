@@ -25,6 +25,7 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   color: #fff!important;
   font-size: 1.4em;
   letter-spacing: 2px;
+  font-weight: 200;
 }
 
 .bar-nav~.content {
