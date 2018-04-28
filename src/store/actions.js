@@ -30,9 +30,30 @@ module.exports = function setupActions (state, emitter) {
     emitter.emit('render')
   })
 
-  // data fetching
+  // data actions
   emitter.on('fetchChallenges', () => {
     window.fetch('http://52.57.63.176/challenge')
+      .then(res => res.json())
+      .then(data => {
+        window.setTimeout(() => {
+          state.challenges = data
+          state.loading = false
+          emitter.emit('render')
+        }, 800)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  })
+
+  emitter.on('participateChallenge', (challengeId) => {
+    window.fetch('http://{{APIURL}}/challenge/participate', {
+      body: JSON.stringify({
+        email: state.user.email,
+        challenge: challengeId,
+        method: 'POST',
+      })
+    })
       .then(res => res.json())
       .then(data => {
         window.setTimeout(() => {

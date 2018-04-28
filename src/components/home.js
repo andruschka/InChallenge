@@ -3,8 +3,8 @@ const challengeCard = require('./challengeCard')
 
 module.exports = function renderHome (state, emit) {
   return html`
-  <div class="content-padded">
-      <h1>Your statistic</h1>
+  <div class="content-padded animated fadeIn">
+      <h1>Your scores</h1>
       <div>
         <small>Acceleration</small>
         <div class="chart-bar chart-bar-red" style="width:70%;"></div>
