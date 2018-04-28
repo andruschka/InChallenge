@@ -32,7 +32,7 @@ module.exports = function setupActions (state, emitter) {
 
   // data actions
   emitter.on('fetchChallenges', () => {
-    window.fetch('http://52.57.63.176/challenge')
+    window.fetch('//52.57.63.176/challenge')
       .then(res => res.json())
       .then(data => {
         window.setTimeout(() => {
@@ -47,7 +47,7 @@ module.exports = function setupActions (state, emitter) {
   })
 
   emitter.on('createUser', (usrObj) => {
-    window.fetch('http://{{APIURL}}/challenge/participate', {
+    window.fetch('//52.57.63.176/challenge/participate', {
       body: JSON.stringify(usrObj),
       method: 'POST',
     })
@@ -61,7 +61,7 @@ module.exports = function setupActions (state, emitter) {
   })
 
   emitter.on('participateChallenge', (challengeId) => {
-    window.fetch('http://{{APIURL}}/challenge/participate', {
+    window.fetch('//52.57.63.176/challenge/participate', {
       body: JSON.stringify({
         email: state.user.email,
         challenge: challengeId,

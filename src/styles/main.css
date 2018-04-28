@@ -55,39 +55,6 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
 }
 
-.chart-bar {
-  height: 70px;
-  /* width: 100%; */
-  border-radius: 10px;
-}
-
-.chart-bar-red {
-  background: #E44D26;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F16529, #E44D26);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F16529, #E44D26);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.chart-bar-green {
-  background: #007991;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #78ffd6, #007991);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #78ffd6, #007991);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.chart-bar-blue {
-  background: #667db6;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 .action-card {
   overflow: hidden;
   background-color: #fff;
@@ -154,6 +121,17 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
 }
 
+.btn-fab {
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #26d6a7, #689adf);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #26d6a7, #689adf);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff!important;
+  border: 0px!important;
+  border-radius: 15px!important;
+}
+
 .circle-score-bg {
   position: absolute;
   top: 10px;
@@ -167,6 +145,7 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   background-color: #fff;
 }
+
 .score-stats {
   display: flex;
   flex: 1;

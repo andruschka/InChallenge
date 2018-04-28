@@ -17,7 +17,7 @@ module.exports = function renderScores (state, emit) {
             </strong>
           </div>
         </div>
-        Out of 100
+        von 100 pts
       </div>
       <div class="space-top score-stats">
         <div class="stat text-center">

@@ -33,7 +33,7 @@ const wrapPage = (View) => (state, emit) => {
         </a>
         <a class="tab-item ${state.route === 'journey' ? 'active' : ''}" href="/journey">
           <img src="${state.route === 'journey' ? journeyIcon_b : journeyIcon}" alt="" width="25" height="25" class="icon">
-          <span class="tab-label">Journey</span>
+          <span class="tab-label">Fahrten</span>
         </a>
         <a class="tab-item ${(['scores', 'scores/leaderboard'].indexOf(state.route) >= 0) ? 'active' : ''}" href="/scores">
           <img src="${(['scores', 'scores/leaderboard'].indexOf(state.route) >= 0) ? scoresIcon_b : scoresIcon}" alt="" width="25" height="25" class="icon">
@@ -45,7 +45,7 @@ const wrapPage = (View) => (state, emit) => {
         </a>
         <a class="tab-item ${state.route === 'profile' ? 'active' : ''}" href="/profile">
           <img src="${state.route === 'profile' ? profileIcon_b : profileIcon }" alt="" width="25" height="25" class="icon">
-          <span class="tab-label">Profile</span>
+          <span class="tab-label">Profil</span>
         </a>
       </nav>
     </div>

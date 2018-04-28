@@ -17,13 +17,13 @@ module.exports = function renderScores (state, emit) {
       <li class="table-view-cell ">
         <a class="">
             <strong>1.</strong> John Doe
-            <span class="badge pull-right">94/100 pts</span>
+            <span class="badge badge-primary pull-right">94/100 pts</span>
         </a>
       </li>
       <li class="table-view-cell ">
         <a class="">
             <strong>2.</strong> Andrej Fritz
-            <span class="badge pull-right">90/100 pts</span>
+            <span class="badge badge-positive pull-right">90/100 pts</span>
         </a>
       </li>
       <li class="table-view-cell ">
