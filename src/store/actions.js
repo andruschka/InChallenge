@@ -1,6 +1,5 @@
 module.exports = function setupActions (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
-    console.log(state)
     const lsUserStr = window.localStorage.getItem('InChallenge.user')
     if (lsUserStr) {
       console.log('User found in LocalStorage')
