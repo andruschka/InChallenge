@@ -1,6 +1,6 @@
 require('jquery/dist/jquery.slim')
-require('popper.js/dist/popper.js')
-require('bootstrap/dist/js/bootstrap.js')
+require('goratchet/dist/js/ratchet.js')
+require('goratchet/dist/css/ratchet.css')
 const devtools = require('choo-devtools')
 const choo = require('choo')
 const store = require('./store/index.js')
