@@ -3,6 +3,41 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
 }
 
+.content {
+  padding-bottom: 70px;
+}
+
+.bar.bar-nav {
+  height: 70px!important;
+  background: #26d6a7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #26d6a7, #689adf);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #26d6a7, #689adf);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom: 0px!important;
+  -webkit-box-shadow: 0px 0px 12px 2px #888;
+  box-shadow: 0px 0px 12px 2px #888;
+}
+
+.bar.bar-nav .title {
+  line-height: 70px!important;
+  color: #fff!important;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+}
+
+.bar-nav~.content {
+  padding-top: 70px!important;
+}
+
+.bar.bar-tab {
+  height: 70px!important;
+  border-top: 0px;
+  -webkit-box-shadow: 0px 0px 12px -2px #888;
+  box-shadow: 0px 0px 12px -2px #888;
+}
+
 .splash {
   height: 100vh;
   width: 100vw;
