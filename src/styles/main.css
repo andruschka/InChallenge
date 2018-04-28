@@ -116,3 +116,63 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
 .space-bottom {
   margin-bottom: 15px;
 }
+
+.rised-card {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 20px -4px #888;
+  box-shadow: 0px 0px 20px -4px #888;
+  padding: 15px;
+}
+
+.segmented-control {
+  border: 0px!important;
+  border-radius: 0px!important;
+  margin: 25px 0;
+}
+
+.control-item {
+  border: 0px!important;
+  border-radius: 0px!important;
+}
+
+.control-item.active {
+  background-color: inherit!important;
+  border-bottom: 5px solid #007991!important;
+}
+
+.circle-score {
+  margin: 10px auto;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 20px;
+  background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+}
+
+.circle-score-bg {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #000;
+  line-height: 80px;
+  text-align: center;
+  background-color: #fff;
+}
+.score-stats {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.score-stats small {
+  font-size: 9px;
+}
