@@ -1,6 +1,11 @@
 const html = require('choo/html')
+const splash = require('./splash')
+const start = require('./start')
 
 const wrapPage = (View) => (state, emit) => {
+  if (state.loading) return splash()
+  if (!state.startFinished) return start(state, emit)
+
   return html`
     <div>
       <!-- <header class="bar bar-nav">

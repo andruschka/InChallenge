@@ -20,6 +20,6 @@
     "choo": "^6.11.0-preview1",
     "choo-devtools": "^2.5.0",
     "goratchet": "^2.0.2",
-    "jquery": "^3.3.1"
+    "moment": "^2.22.1"
   }
 }

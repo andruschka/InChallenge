@@ -1,22 +1,7 @@
 module.exports = function setupActions (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
-    const lsUserStr = window.localStorage.getItem('InChallenge.user')
-    if (lsUserStr) {
-      console.log('User found in LocalStorage')
-      try {
-        state.user = JSON.parse(lsUserStr)
-        if (state.route === 'login') { // redirect away from login if user saved
-          emitter.emit('replaceState', '/')
-          emitter.emit('render')
-        }
-      } catch (e) {
-        state.user = null
-      }
-    } else { // redirect to login if no user saved
-      state.user = null
-      emitter.emit('replaceState', '/login')
-      emitter.emit('render')
-    }
+    emitter.emit('fetchChallenges')
+    if (window.localStorage.getItem('Droove.startFinished')) state.startFinished = true
   })
 
   emitter.on('login', (email, pass) => {
@@ -34,5 +19,30 @@ module.exports = function setupActions (state, emitter) {
     window.localStorage.removeItem('InChallenge.user')
     emitter.emit('replaceState', '/login')
     emitter.emit('render')
+  })
+
+  emitter.on('nextStartStep', (finish) => {
+    state.startStep = state.startStep + 1
+    if (finish) {
+      state.startFinished = true
+      window.localStorage.setItem('Droove.startFinished', true)
+    }
+    emitter.emit('render')
+  })
+
+  // data fetching
+  emitter.on('fetchChallenges', () => {
+    window.fetch('http://52.57.63.176/challenge')
+      .then(res => res.json())
+      .then(data => {
+        window.setTimeout(() => {
+          state.challenges = data
+          state.loading = false
+          emitter.emit('render')
+        }, 800)
+      })
+      .catch(err => {
+        console.error(err)
+      })
   })
 }
