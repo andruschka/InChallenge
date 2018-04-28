@@ -5,22 +5,15 @@ module.exports = function setupActions (state, emitter) {
       console.log('User found in LocalStorage')
       try {
         state.user = JSON.parse(lsUserStr)
-        emitter.emit('replaceState', '/')
-        emitter.emit('render')
+        if (state.route === 'login') { // redirect away from login if user saved
+          emitter.emit('replaceState', '/')
+          emitter.emit('render')
+        }
       } catch (e) {
         state.user = null
-        emitter.emit('replaceState', '/login')
-        emitter.emit('render')
       }
-    } else {
+    } else { // redirect to login if no user saved
       state.user = null
-      emitter.emit('replaceState', '/login')
-      emitter.emit('render')
-    }
-  })
-
-  emitter.on('navigate', () => {
-    if (!(state.route === 'login') && !state.user) {
       emitter.emit('replaceState', '/login')
       emitter.emit('render')
     }
