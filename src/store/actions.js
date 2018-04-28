@@ -25,6 +25,7 @@ module.exports = function setupActions (state, emitter) {
       pass
     }
     window.localStorage.setItem('InChallenge.user', JSON.stringify({email, pass}))
+    emitter.emit('replaceState', '/')
     emitter.emit('render')
   })
 

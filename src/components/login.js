@@ -12,10 +12,10 @@ module.exports = function renderLogin (state, emit) {
 
   return html`
   <div>
-    <header class="bar bar-nav">
-      <h1 class="title">InChallenge</h1>
-    </header>
     <div class="content">
+      <div class="content-padded">
+        <h1>Please log in</h1>
+      </div>
       <form class="input-group" onsubmit=${handleSubmit}>
       <div class="input-row">
         <label>Email</label>

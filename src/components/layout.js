@@ -3,9 +3,9 @@ const html = require('choo/html')
 const wrapPage = (View) => (state, emit) => {
   return html`
     <div>
-      <header class="bar bar-nav">
+      <!-- <header class="bar bar-nav">
         <h1 class="title">InChallenge</h1>
-      </header>
+      </header> -->
       <div class="content">
         ${View(state, emit)}
       </div>
@@ -14,9 +14,9 @@ const wrapPage = (View) => (state, emit) => {
           <span class="icon icon-home"></span>
           <span class="tab-label">Home</span>
         </a>
-        <a class="tab-item ${state.route === 'profile' ? 'active' : ''}" href="/profile">
+        <a class="tab-item ${state.route === 'challenges' ? 'active' : ''}" href="/challenges">
           <span class="icon icon-person"></span>
-          <span class="tab-label">Profile</span>
+          <span class="tab-label">Challenges</span>
         </a>
         <a class="tab-item ${state.route === 'settings' ? 'active' : ''}" href="/settings">
           <span class="icon icon-gear"></span>
