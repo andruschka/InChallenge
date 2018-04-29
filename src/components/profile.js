@@ -1,52 +1,40 @@
 const html = require('choo/html')
-const challengeCard = require('./challengeCard')
+const userIcon = require('../img/user-icon.png')
 
 module.exports = function renderProfile(state, emit) {
+  const user = state.user
   return html`
   <div class="content-padded animated fadeIn">
-      <div class="rised-card space-top">
-        <div class="card-header">
-          <div class="profile-info-container">
-            <div class=".img-profile">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/Harry-Potter-1-.jpg" alt="" class="img-profile clip-circle">
-            </div>
-            <div class="profile-info">
-              <ul >
-                <li class="table-view-cell">Joe Smith</li>
-                <li class="table-view-cell">+49 123 12345678</li>
-                <li class="table-view-cell">joe@mail.com</li>
-                <li class="table-view-cell">Policy Nr. #123456789</li>
-                
-                <li class="table-view-cell"><span class="badge badge-primary">Edit</span></li>
-                <li class="table-view-cell"></li>
-              </ul>    
-            </div>
+      <div class="action-card space-top">
+        <h2>${user.firstName} ${user.lastName}</h2>
+        <br>
+        <div class="action-card-body">
+          <div class="action-icon">
+            <img src="${userIcon}" alt="" class="img-responsive" style="max-width:100%;">
+          </div>
+          <div class="action-content content-padded">
+            <p>
+              <div style="font-weight:200;font-size:.8em;">Email</div>
+              ${user.email}
+            </p>
+            <p>
+              <div style="font-weight:200;font-size:.8em;">Telefon</div>
+              ${user.telephone}
+            </p>
+            <p>
+              <div style="font-weight:200;font-size:.8em;">Adresse</div>
+              ${user.address}<br>
+              ${user.postalCode} ${user.city}<br>
+              ${user.country}
+            </p>
           </div>
         </div>
-
-
-        
-        <div class="space-top score-stats">
-          <div class="stat text-center">
-            <div class="circle-score-small">
-              <div class="circle-score-small-bg">
-                3
-              </div>
-            </div>
-          </div>
+        <div>
+          <button class="btn btn-block btn-link">bearbeiten</button>
         </div>
-      </div>
-
-      <div class="rised-card space-top">
-        <div class="space-top score-stats">
-            <div class="stat text-center">
-              <div class="circle-score-small">
-                <div class="circle-score-small-bg">
-                  3
-                </div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <button class="btn btn-block btn-outlined btn-negative">ausloggen</button>
+        </div>
       </div>
   </div>
   `

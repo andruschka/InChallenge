@@ -75,13 +75,17 @@ module.exports = function setupActions (state, emitter) {
   emitter.on('participateChallenge', (challengeId) => {
     window.fetch(`${API_BASE}/challenge/participate`, {
       method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         email: state.user.email,
         challenge: challengeId,
       }),
     })
       .then(() => {
-        emitter.emit('fetchChallenges')
+        emitter.emit('fetchData')
       })
       .catch(err => {
         console.error(err)

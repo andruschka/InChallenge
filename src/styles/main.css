@@ -73,11 +73,11 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .action-card-body>div.action-icon {
-  flex: 1 0 30%;
+  flex: 0 0 30%;
 }
 
 .action-card-body>div.action-content {
-  flex: 1 0 70%;
+  flex: 0 0 70%;
 }
 
 .space-top {

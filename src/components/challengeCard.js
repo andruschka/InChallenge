@@ -15,7 +15,7 @@ module.exports = function renderChallengeCard (challenge, state, emit) {
           <div class="action-icon">
             <img src="${challenge.image}" alt="" class="img-responsive" style="max-width:80%;">
           </div>
-          <div class="action-card-content">
+          <div class="action-content">
             <h4>${challenge.name}</h4>
             <div>
               <small>${challenge.description}</small>
