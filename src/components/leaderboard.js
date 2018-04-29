@@ -1,10 +1,11 @@
 const html = require('choo/html')
+const calcIndicator = (indi) => Math.round(indi * 100)
 
 module.exports = function renderScores (state, emit) {
   return html`
   <div class="content-padded animated fadeIn">
     <div class="segmented-control">
-      <a class="control-item" href="/scores">Your score</a>
+      <a class="control-item" href="/scores">Dein Score</a>
       <a class="control-item active" href="/scores/leaderboard">Leaderboard</a>
     </div>
 
@@ -18,20 +19,20 @@ module.exports = function renderScores (state, emit) {
       <ul class="table-view" style="margin-top:30px;">
       <li class="table-view-cell ">
         <a class="">
-            <strong>1.</strong> John Doe
-            <span class="badge pull-right">94/100 pts</span>
+            <strong>1.</strong> Brian O'Conner
+            <span class="badge pull-right">80 optidrive</span>
         </a>
       </li>
       <li class="table-view-cell ">
         <a class="">
             <strong>2.</strong> Andrej Fritz
-            <span class="badge badge-primary pull-right">90/100 pts</span>
+            <span class="badge badge-primary pull-right">${calcIndicator(state.score.optidrive_indicator)} optidrive</span>
         </a>
       </li>
       <li class="table-view-cell ">
         <a class="">
             <strong>3.</strong> Julian Krenge
-            <span class="badge pull-right">50/100 pts</span>
+            <span class="badge pull-right">69 optidrive</span>
         </a>
       </li>
       </ul>

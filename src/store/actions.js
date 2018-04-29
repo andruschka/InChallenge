@@ -1,3 +1,5 @@
+const API_BASE = '//52.57.63.176'
+
 module.exports = function setupActions (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
     emitter.emit('fetchData')
@@ -32,15 +34,19 @@ module.exports = function setupActions (state, emitter) {
 
   // data actions
   emitter.on('fetchData', () => {
-    const userDataProm = window.fetch(`//52.57.63.176/user/?email=${state._current_user_email}`)
-      .then(res => res.json())
-    const challengesProm = window.fetch('//52.57.63.176/challenge')
-      .then(res => res.json())
-    Promise.all([userDataProm, challengesProm])
+    const promises = []
+    promises.push(window.fetch(`${API_BASE}/user/?email=${state._current_user_email}`)
+      .then(res => res.json()))
+    promises.push(window.fetch(`${API_BASE}/challenge`)
+      .then(res => res.json()))
+    promises.push(window.fetch(`${API_BASE}/user/score/?email=${state._current_user_email}`)
+      .then(res => res.json()))
+    Promise.all(promises)
       .then((resArr) => {
         window.setTimeout(() => { // just for animation
           state.user = resArr[0]
           state.challenges = resArr[1]
+          state.score = resArr[2]
           state.loading = false
           emitter.emit('render')
           console.log(state)
@@ -53,7 +59,7 @@ module.exports = function setupActions (state, emitter) {
   })
 
   emitter.on('createUser', (usrObj) => {
-    window.fetch('//52.57.63.176/challenge/participate', {
+    window.fetch(`${API_BASE}/challenge/participate`, {
       body: JSON.stringify(usrObj),
       method: 'POST',
     })
@@ -67,7 +73,7 @@ module.exports = function setupActions (state, emitter) {
   })
 
   emitter.on('participateChallenge', (challengeId) => {
-    window.fetch('//52.57.63.176/challenge/participate', {
+    window.fetch(`${API_BASE}/challenge/participate`, {
       method: 'POST',
       body: JSON.stringify({
         email: state.user.email,
