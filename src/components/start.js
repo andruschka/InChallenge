@@ -1,7 +1,7 @@
 const html = require('choo/html')
 const onboarding1 = require('../img/Onboarding-1.png')
-const onboarding2 = require('../img/Onboarding-2.jpg')
-const onboarding3 = require('../img/Onboarding-3.jpg')
+const onboarding2 = require('../img/Onboarding-2.png')
+const onboarding3 = require('../img/Onboarding-3.png')
 
 module.exports = function renderStart (state, emit) {
   const one = html`<div id="ss-1" style="background-image: url(${onboarding1});" class="splash animated bounceInRight" onclick=${() => emit('nextStartStep')}></div>`
