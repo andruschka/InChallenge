@@ -62,11 +62,11 @@ module.exports = function setupActions (state, emitter) {
 
   emitter.on('participateChallenge', (challengeId) => {
     window.fetch('//52.57.63.176/challenge/participate', {
+      method: 'POST',
       body: JSON.stringify({
         email: state.user.email,
         challenge: challengeId,
       }),
-      method: 'POST',
     })
       .then(() => {
         emitter.emit('fetchChallenges')
