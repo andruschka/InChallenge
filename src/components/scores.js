@@ -8,6 +8,8 @@ module.exports = function renderScores (state, emit) {
       <a class="control-item" href="/scores/leaderboard">Leaderboard</a>
     </div>
 
+    <h3>Prima - du bist aktuell auf dem 2. Platz!</h3>
+
     <div class="rised-card space-top">
       <div class="text-center card-header">
         <div class="circle-score">

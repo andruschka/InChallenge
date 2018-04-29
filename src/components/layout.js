@@ -39,10 +39,6 @@ const wrapPage = (View) => (state, emit) => {
           <img src="${(['scores', 'scores/leaderboard'].indexOf(state.route) >= 0) ? scoresIcon_b : scoresIcon}" alt="" width="25" height="25" class="icon">
           <span class="tab-label">Scores</span>
         </a>
-        <a class="tab-item ${state.route === 'rewards' ? 'active' : ''}" href="/rewards">
-          <img src="${state.route === 'rewards' ? rewardsIcon_b : rewardsIcon}" alt="" width="25" height="25" class="icon">
-          <span class="tab-label">Rewards</span>
-        </a>
         <a class="tab-item ${state.route === 'profile' ? 'active' : ''}" href="/profile">
           <img src="${state.route === 'profile' ? profileIcon_b : profileIcon }" alt="" width="25" height="25" class="icon">
           <span class="tab-label">Profil</span>
@@ -53,3 +49,9 @@ const wrapPage = (View) => (state, emit) => {
 }
 
 module.exports = wrapPage
+
+
+// < a class="tab-item ${state.route === 'rewards' ? 'active' : ''}" href = "/rewards" >
+//   <img src="${state.route === 'rewards' ? rewardsIcon_b : rewardsIcon}" alt="" width="25" height="25" class="icon">
+//     <span class="tab-label">Rewards</span>
+//       </a>
