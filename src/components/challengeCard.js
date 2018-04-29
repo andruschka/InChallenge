@@ -9,20 +9,26 @@ module.exports = function renderChallengeCard (challenge, state, emit) {
 
   return html`
 
-    <div class="action-card space-bottom" style="background-image:url(${challenge.image});">
+    <div class="action-card space-bottom">
       <div class="content-padded">
-        <h3>${challenge.name}</h3>
-        <div class="rised-card" style="background-color:rgba(255,255,255,.8);color:#000;">
-          <div>
-            <small>${challenge.description}</small>
+        <div class="action-card-body">
+          <div class="action-icon">
+            <img src="${challenge.image}" alt="" class="img-responsive" style="max-width:80%;">
           </div>
-          <div>
-            <small>Preis: ${challenge.price}</small>
+          <div class="action-card-content">
+            <h4>${challenge.name}</h4>
+            <div>
+              <small>${challenge.description}</small>
+            </div>
+            <div>
+              <small class="badge">Preis: ${challenge.price}</small>
+            </div>
+         ${participating ?   html`
+        <button class="space-top btn btn-block btn-fab " style="opacity:.5;">du nimmst schon teil</button>` :   html`
+        <button class="space-top btn btn-block btn-fab " onclick=${handleClick}>teilnehmen
+          </button>`}
           </div>
         </div>
-        ${ participating ?
-    html`<button class="space-top btn btn-block btn-fab " style="opacity:.7;">du nimmst schon teil</button>` :
-    html`<button class="space-top btn btn-block btn-fab " onclick=${handleClick}>teilnehmen</button>`}
         
       </div>
     </div>

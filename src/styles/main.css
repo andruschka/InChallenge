@@ -60,20 +60,24 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: #fff;
+  color: #000;
   min-height: 90px;
+  -webkit-box-shadow: 0px 0px 20px -4px #888;
+  box-shadow: 0px 0px 20px -4px #888;
+  padding: 15px;
 }
 
-.action-card h3 {
-  color: #fff;
-  text-shadow: 1px 1px 2px #000;
+.action-card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-card-body>div.action-icon {
+  flex: 1 0 30%;
+}
+
+.action-card-body>div.action-content {
+  flex: 1 0 70%;
 }
 
 .space-top {
@@ -162,6 +166,7 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-around;
 }
+
 .score-stats .stat {
   flex: 1 1 33.3%;
 }
