@@ -24,8 +24,9 @@ app.route('/profile', layout(profile))
 app.route('/start', start)
 app.route('/reset', (state, emit) => {
   window.localStorage.removeItem('Droove.startFinished')
-  emit('replaceState', '/')
-  emit('render')
+  window.setTimeout(() => {
+    emit('replaceState', '/start')
+  }, 200)
   return html`<div>wuooo?</div>`
 })
 // app.route('/login', login)

@@ -17,6 +17,16 @@ module.exports = function renderJourney (state, emit) {
       </div>
 
       <div class="rised-card space-top">
+              <div class="text-center card-header">
+                <div class="circle-score">
+                  <div class="circle-score-bg">
+                    <strong>
+                      ${59}
+                    </strong>
+                  </div>
+                </div>
+                Optidrive
+                </div>
         <div class="space-top score-stats">
           <div class="stat text-center">
             <div><strong>${calcIndicator(state.score.speeding_indicator)}</strong></div>

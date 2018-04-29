@@ -33,7 +33,7 @@ module.exports = function renderProfile(state, emit) {
           <button class="btn btn-block btn-link">bearbeiten</button>
         </div>
         <div>
-          <button class="btn btn-block btn-outlined btn-negative">ausloggen</button>
+          <button class="btn btn-block btn-outlined btn-negative" onclick=${() => emit('pushState', '/reset')}>ausloggen</button>
         </div>
       </div>
   </div>
