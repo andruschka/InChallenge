@@ -202,8 +202,10 @@ body, html, p, div, h1, h2, h3, h4, h5, h6 {
 
 .score-stats {
   display: flex;
-  flex: 1;
   justify-content: space-around;
+}
+.score-stats .stat {
+  flex: 1 1 33.3%;
 }
 
 .score-stats small {

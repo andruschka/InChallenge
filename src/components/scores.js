@@ -1,60 +1,60 @@
 const html = require('choo/html')
+const calcIndicator = (indi) => Math.round(indi * 100)
+const calcTime = (indi) => Math.round(indi/60)
+const calcMeter = (indi) => Math.round(indi/1000)
 
 module.exports = function renderScores (state, emit) {
   return html`
   <div class="content-padded animated fadeIn">
     <div class="segmented-control">
-      <a class="control-item active" href="/scores">Your score</a>
+      <a class="control-item active" href="/scores">Dein Score</a>
       <a class="control-item" href="/scores/leaderboard">Leaderboard</a>
     </div>
+    
+    <div><strong>Prima.</strong> Du bist aktuell auf dem 2. Platz in Hannover.</div>
 
-    <h3>Prima - du bist aktuell auf dem 2. Platz!</h3>
 
     <div class="rised-card space-top">
       <div class="text-center card-header">
         <div class="circle-score">
           <div class="circle-score-bg">
             <strong>
-              90
+              ${calcIndicator(state.score.optidrive_indicator)}
             </strong>
           </div>
         </div>
-        von 100 pts
+        Optidrive
       </div>
       <div class="space-top score-stats">
         <div class="stat text-center">
-          <div><strong>90</strong></div>
-          <div><small>Beschleunigung</small></div>
+          <div><strong>${calcIndicator(state.score.speeding_indicator)}</strong></div>
+          <div><small>Beschl.</small></div>
         </div>
         <div class="stat text-center">
-          <div><strong>80</strong></div>
+          <div><strong>${calcIndicator(state.score.constant_speed_indicator)}</strong></div>
           <div><small>Geschw.</small></div>
         </div>
         <div class="stat text-center">
-          <div><strong>80</strong></div>
-          <div><small>Bremsung</small></div>
-        </div>
-        <div class="stat text-center">
-          <div><strong>90</strong></div>
-          <div><small>Kurven</small></div>
+          <div><strong>${calcIndicator(state.score.coasting_indicator)}</strong></div>
+          <div><small>Stillst.</small></div>
         </div>
       </div>
       <hr>
       <div class="space-top score-stats">
         <div class="stat text-center">
           <div>
-            <strong>Tank Ersp.</strong>
+            <strong>Fahrtzeit ges.</strong>
           </div>
           <div>
-          5€
+          ${calcTime(state.score.totaldrivingtime)} Stunden
           </div>
         </div>
         <div class="stat text-center">
           <div>
-            <strong>CO2 Emis</strong>
+            <strong>Strecke ges.</strong>
           </div>
           <div>
-          2,4 kg
+          ${calcMeter(state.score.totaldistance)} km
           </div>
         </div>
       </div>

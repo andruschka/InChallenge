@@ -1,6 +1,8 @@
+const API_BASE = '//52.57.63.176'
+
 module.exports = function setupActions (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
-    emitter.emit('fetchChallenges')
+    emitter.emit('fetchData')
     if (window.localStorage.getItem('Droove.startFinished')) state.startFinished = true
   })
 
@@ -31,23 +33,33 @@ module.exports = function setupActions (state, emitter) {
   })
 
   // data actions
-  emitter.on('fetchChallenges', () => {
-    window.fetch('//52.57.63.176/challenge')
-      .then(res => res.json())
-      .then(data => {
-        window.setTimeout(() => {
-          state.challenges = data
+  emitter.on('fetchData', () => {
+    const promises = []
+    promises.push(window.fetch(`${API_BASE}/user/?email=${state._current_user_email}`)
+      .then(res => res.json()))
+    promises.push(window.fetch(`${API_BASE}/challenge`)
+      .then(res => res.json()))
+    promises.push(window.fetch(`${API_BASE}/user/score/?email=${state._current_user_email}`)
+      .then(res => res.json()))
+    Promise.all(promises)
+      .then((resArr) => {
+        window.setTimeout(() => { // just for animation
+          state.user = resArr[0]
+          state.challenges = resArr[1]
+          state.score = resArr[2]
           state.loading = false
           emitter.emit('render')
-        }, 800)
+          console.log(state)
+        }, 500)
       })
       .catch(err => {
-        console.error(err)
+        console.log('Could not fetch data: ', err.message)
+        alert('Ohoh.\n Seems like there is a problem with the connection. Please try again later...')
       })
   })
 
   emitter.on('createUser', (usrObj) => {
-    window.fetch('//52.57.63.176/challenge/participate', {
+    window.fetch(`${API_BASE}/challenge/participate`, {
       body: JSON.stringify(usrObj),
       method: 'POST',
     })
@@ -61,7 +73,7 @@ module.exports = function setupActions (state, emitter) {
   })
 
   emitter.on('participateChallenge', (challengeId) => {
-    window.fetch('//52.57.63.176/challenge/participate', {
+    window.fetch(`${API_BASE}/challenge/participate`, {
       method: 'POST',
       body: JSON.stringify({
         email: state.user.email,
