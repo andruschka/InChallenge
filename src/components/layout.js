@@ -4,12 +4,12 @@ const start = require('./start')
 const homeIcon = require('../img/tabs/Home.png')
 const journeyIcon = require('../img/tabs/Journey.png')
 const scoresIcon = require('../img/tabs/Scores.png')
-const rewardsIcon = require('../img/tabs/Rewards.png')
+// const rewardsIcon = require('../img/tabs/Rewards.png')
 const profileIcon = require('../img/tabs/Profile.png')
 const homeIcon_b = require('../img/tabs/Home_blue.png')
 const journeyIcon_b = require('../img/tabs/Journey_blue.png')
 const scoresIcon_b = require('../img/tabs/Scores_blue.png')
-const rewardsIcon_b = require('../img/tabs/Rewards_blue.png')
+// const rewardsIcon_b = require('../img/tabs/Rewards_blue.png')
 const profileIcon_b = require('../img/tabs/Profile_blue.png')
 
 const wrapPage = (View) => (state, emit) => {
@@ -37,7 +37,7 @@ const wrapPage = (View) => (state, emit) => {
         </a>
         <a class="tab-item ${(['scores', 'scores/leaderboard'].indexOf(state.route) >= 0) ? 'active' : ''}" href="/scores">
           <img src="${(['scores', 'scores/leaderboard'].indexOf(state.route) >= 0) ? scoresIcon_b : scoresIcon}" alt="" width="25" height="25" class="icon">
-          <span class="tab-label">Scores</span>
+          <span class="tab-label">Score</span>
         </a>
         <a class="tab-item ${state.route === 'profile' ? 'active' : ''}" href="/profile">
           <img src="${state.route === 'profile' ? profileIcon_b : profileIcon }" alt="" width="25" height="25" class="icon">

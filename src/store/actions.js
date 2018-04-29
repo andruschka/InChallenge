@@ -1,6 +1,6 @@
 module.exports = function setupActions (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
-    emitter.emit('fetchChallenges')
+    emitter.emit('fetchData')
     if (window.localStorage.getItem('Droove.startFinished')) state.startFinished = true
   })
 
@@ -31,18 +31,24 @@ module.exports = function setupActions (state, emitter) {
   })
 
   // data actions
-  emitter.on('fetchChallenges', () => {
-    window.fetch('//52.57.63.176/challenge')
+  emitter.on('fetchData', () => {
+    const userDataProm = window.fetch(`//52.57.63.176/user/?email=${state._current_user_email}`)
       .then(res => res.json())
-      .then(data => {
-        window.setTimeout(() => {
-          state.challenges = data
+    const challengesProm = window.fetch('//52.57.63.176/challenge')
+      .then(res => res.json())
+    Promise.all([userDataProm, challengesProm])
+      .then((resArr) => {
+        window.setTimeout(() => { // just for animation
+          state.user = resArr[0]
+          state.challenges = resArr[1]
           state.loading = false
           emitter.emit('render')
-        }, 800)
+          console.log(state)
+        }, 500)
       })
       .catch(err => {
-        console.error(err)
+        console.log('Could not fetch data: ', err.message)
+        alert('Ohoh.\n Seems like there is a problem with the connection. Please try again later...')
       })
   })
 

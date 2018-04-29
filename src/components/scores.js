@@ -7,8 +7,9 @@ module.exports = function renderScores (state, emit) {
       <a class="control-item active" href="/scores">Your score</a>
       <a class="control-item" href="/scores/leaderboard">Leaderboard</a>
     </div>
+    
+    <div><strong>Prima.</strong> Du bist aktuell auf dem 2. Platz in Hannover.</div>
 
-    <h3>Prima - du bist aktuell auf dem 2. Platz!</h3>
 
     <div class="rised-card space-top">
       <div class="text-center card-header">

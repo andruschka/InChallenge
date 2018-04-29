@@ -8,6 +8,8 @@ module.exports = function renderScores (state, emit) {
       <a class="control-item active" href="/scores/leaderboard">Leaderboard</a>
     </div>
 
+    <div><strong>Prima.</strong> Du bist aktuell auf dem 2. Platz in Hannover.</div>
+
     <div class="rised-card space-top">
       <div class="text-center card-header">
         Leaderboard
@@ -17,13 +19,13 @@ module.exports = function renderScores (state, emit) {
       <li class="table-view-cell ">
         <a class="">
             <strong>1.</strong> John Doe
-            <span class="badge badge-primary pull-right">94/100 pts</span>
+            <span class="badge pull-right">94/100 pts</span>
         </a>
       </li>
       <li class="table-view-cell ">
         <a class="">
             <strong>2.</strong> Andrej Fritz
-            <span class="badge badge-positive pull-right">90/100 pts</span>
+            <span class="badge badge-primary pull-right">90/100 pts</span>
         </a>
       </li>
       <li class="table-view-cell ">
